@@ -7,7 +7,7 @@ Reverse geocoding:
 
 # Build
 
-Run `./build.sh`
+Run `./gradlew build`, or `./build.sh` if you modified anything in the `data` folder.
 
 # Generate the gray map
 
