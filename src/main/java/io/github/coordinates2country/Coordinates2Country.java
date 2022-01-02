@@ -1,4 +1,4 @@
-package org.github.coordinates2country;
+package io.github.coordinates2country;
 
 import java.util.Collections;
 import java.util.Map;
