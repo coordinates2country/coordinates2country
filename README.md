@@ -7,6 +7,18 @@ What country is at a particular latitude/longitude? This Java/Android library te
 
 # Usage
 
+This [sample program that uses the library](https://github.com/coordinates2country/sample) might help.
+
+## 1) Import the library
+
+If using Gradle:
+
+```
+implementation("io.github.coordinates2country:coordinates2country:1.2")
+```
+
+## 2) Call the library
+
 `Coordinates2Country.country(-23.7, 39.8)` returns the String `France`.
 
 If you prefer numbers, `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
