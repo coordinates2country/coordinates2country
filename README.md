@@ -5,6 +5,12 @@ What country is at a particular latitude/longitude? This Java/Android library te
 - Fast reverse geocoding
 - Never needs an Internet connection
 
+# Usage
+
+`Coordinates2Country.country(-23.7, 39.8)` returns the String `France`.
+
+If you prefer numbers, `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
+
 # Build
 
 Run `./gradlew build`, or `./build.sh` if you modified anything in the `data` folder.
