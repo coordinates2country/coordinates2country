@@ -1,5 +1,7 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
 repositories {
@@ -9,4 +11,66 @@ repositories {
 dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+// OSSRH publishing instructions found at https://mrcurious.medium.com/publishing-your-android-kotlin-library-to-maven-central-in-2021-df263a4f2cbc
+
+group = 'io.github.coordinates2country'
+version = '1.1'
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+
+            artifactId = 'coordinates2country'
+
+            from components.java
+
+            pom {
+                name = 'Coordinates2Country'
+                description = 'Fast offline reverse geocoding'
+                url = 'https://github.com/coordinates2country/coordinates2country'
+                licenses {
+                    license {
+                        name = 'Apache-2.0 License'
+                        url = 'https://github.com/coordinates2country/coordinates2country/blob/main/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'Nicolas_Raoul'
+                        name = 'Nicolas Raoul'
+                        email = 'nicolas.raoul@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/CuriousNikhil/simplepoller.git'
+                    developerConnection = 'scm:git:ssh://github.com/coordinates2country/coordinates2country.git'
+                    url = 'https://github.com/coordinates2country/coordinates2country'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+
+            credentials {
+                username = "$NEXUS_USERNAME"
+                password = "$NEXUS_PASSWORD"
+            }
+
+            name = "Coordinates2Country"
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
