@@ -12,16 +12,22 @@ This [sample program that uses the library](https://github.com/coordinates2count
 ## 1) Import the library
 
 If using Gradle:
-
 ```
 implementation("io.github.coordinates2country:coordinates2country:1.2")
+```
+
+For other build systems or for the JAR, search for the latest version on [Maven Central](https://search.maven.org/artifact/io.github.coordinates2country/coordinates2country/1.2/jar).
+
+At the top of your Java file, after the package declaration, insert this line:
+```
+import io.github.coordinates2country.Coordinates2Country;
 ```
 
 ## 2) Call the library
 
 `Coordinates2Country.country(-23.7, 39.8)` returns the String `France`.
 
-If you prefer numbers, `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
+If you prefer identifiers, `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
 
 # Build
 
