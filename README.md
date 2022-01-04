@@ -51,3 +51,5 @@ Source image: https://commons.wikimedia.org/wiki/File:Internationalwaters.png Kv
 Projection: https://en.wikipedia.org/wiki/Equirectangular_projection with phi0=0 and lambda0=0
 
 Useful maps: https://farm8.staticflickr.com/7292/10134658063_fca4fc3da2_o.jpg https://i.imgur.com/lzm0fWN.png
+
+[Release procedure](https://github.com/coordinates2country/coordinates2country/wiki#release-procedure)
