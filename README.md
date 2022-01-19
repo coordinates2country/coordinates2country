@@ -5,7 +5,7 @@ What country is at a particular latitude/longitude? This Java library tells you 
 - Fast reverse geocoding
 - Never needs an Internet connection
 
-For the Java desktop/server version, see https://github.com/coordinates2country/coordinates2country-android.
+For the Android version, see https://github.com/coordinates2country/coordinates2country-android.
 
 # Use
 
