@@ -16,7 +16,7 @@ dependencies {
 // OSSRH publishing instructions found at https://mrcurious.medium.com/publishing-your-android-kotlin-library-to-maven-central-in-2021-df263a4f2cbc
 
 group = 'io.github.coordinates2country'
-version = '1.1'
+version = '1.2'
 
 java {
     withJavadocJar()

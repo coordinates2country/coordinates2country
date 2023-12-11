@@ -178,7 +178,7 @@ public class Coordinates2Country {
      * Command line utility, mostly for testing purposes.
      *
      * Usage example:
-     * java -cp build/libs/coordinates2country.jar org.github.coordinates2country.Coordinates2Country 50.1 10.2
+     * java -cp build/libs/coordinates2country.jar io.github.coordinates2country.Coordinates2Country 50.1 10.2
      * Output: Germany
      */
     public static void main(String[] args) {

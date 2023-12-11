@@ -147,6 +147,7 @@ color,country,latitude,longitude,wikidata,must be 1 or more,special value in wha
 146,Zambia,-14,28,http://www.wikidata.org/entity/Q953,1,,
 147,Tonga,-20,-175,http://www.wikidata.org/entity/Q678,1,,
 148,Western Sahara,26.3,-9.5,http://www.wikidata.org/entity/Q6250,1,,
+149,Belgium,50.86,4.325,http://www.wikidata.org/entity/Q31,1,,
 153,People's Republic of China,35.84472222,103.4519444,http://www.wikidata.org/entity/Q148,5,,
 154,Turkey,39,36,http://www.wikidata.org/entity/Q43,1,,
 155,Czech Republic,49.5,16,http://www.wikidata.org/entity/Q213,1,,
