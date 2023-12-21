@@ -36,36 +36,36 @@ public class Coordinates2Country {
      * @param wikidataOrNot Whether to return the result as a Wikidata QID number or a country name in English.
      */
     private static String country(double latitude, double longitude, boolean wikidataOrNot) {
-	int WIDTH = 2400; // Width of the map image.
-	int HEIGHT = 949; // Height of the map image.
+        int WIDTH = 2400; // Width of the map image.
+        int HEIGHT = 949; // Height of the map image.
 
-	int GREENWICH_X = 939; // At what pixel is the Greenwich longitude.
-	int EQUATOR_Y = 555; // At what pixel is the Equator latitude.
-	double MIN_LATITUDE = -58.55; // South tip of Sandwich Islands
-	double MAX_LATITUDE = 83.64; // North tip of Canada
+        int GREENWICH_X = 939; // At what pixel is the Greenwich longitude.
+        int EQUATOR_Y = 555; // At what pixel is the Equator latitude.
+        double MIN_LATITUDE = -58.55; // South tip of Sandwich Islands
+        double MAX_LATITUDE = 83.64; // North tip of Canada
 
-	if (longitude < -180
-		|| longitude > 180
-		|| latitude < MIN_LATITUDE
-		|| latitude > MAX_LATITUDE) {
-		return null; // TODO return Russia or Canada or Chile/etc based on longitude and pole.
-	}
+        if (longitude < -180
+            || longitude > 180
+            || latitude < MIN_LATITUDE
+            || latitude > MAX_LATITUDE) {
+            return null; // TODO return Russia or Canada or Chile/etc based on longitude and pole.
+        }
 
-	// https://en.wikipedia.org/wiki/Equirectangular_projection
-	int x = (WIDTH + (int)(GREENWICH_X + longitude*WIDTH/360)) % WIDTH;
-	int y = (int)(EQUATOR_Y - latitude*HEIGHT/(MAX_LATITUDE-MIN_LATITUDE));
+        // https://en.wikipedia.org/wiki/Equirectangular_projection
+        int x = (WIDTH + (int)(GREENWICH_X + longitude*WIDTH/360)) % WIDTH;
+        int y = (int)(EQUATOR_Y - latitude*HEIGHT/(MAX_LATITUDE-MIN_LATITUDE));
 
         // Each country is a shade of gray in this image which is a map of the world using the https://en.wikipedia.org/wiki/Equirectangular_projection with phi0=0 and lambda0=0.
         // Load it within this method and do not cache it, in order to allow garbage collection between each call, because we consider that low memory usage is more important than speed.
         BufferedImage map = null;
-	try {
-	    map = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
-	}
-	catch(IOException e) {
+        try {
+            map = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
+        }
+        catch(IOException e) {
             e.printStackTrace();
             return null;
-	}
-  
+        }
+
         String country = nearestCountry(x, y, wikidataOrNot, map);
         //System.out.println("For latitude=" + latitude + " longitude=" + longitude + " (x=" + x + " y=" + y + ") found country " + country);
         return country;
