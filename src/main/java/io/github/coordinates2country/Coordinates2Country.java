@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
+
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
@@ -93,16 +94,16 @@ public class Coordinates2Country {
 
         // Each country is a shade of gray in this image which is a map of the world using the https://en.wikipedia.org/wiki/Equirectangular_projection with phi0=0 and lambda0=0.
         // Load it within this method and do not cache it, in order to allow garbage collection between each call, because we consider that low memory usage is more important than speed.
-        BufferedImage map = null;
+        BufferedImage bitmap = null;
         try {
-            map = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
+            bitmap = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
         }
         catch(IOException e) {
             e.printStackTrace();
             return null;
         }
 
-        String country = nearestCountry(x, y, wikidataOrNot, map);
+        String country = nearestCountry(x, y, wikidataOrNot, bitmap);
         //System.out.println("For latitude=" + latitude + " longitude=" + longitude + " (x=" + x + " y=" + y + ") found country " + country);
         return country;
     }
@@ -110,13 +111,13 @@ public class Coordinates2Country {
     /**
      * Finds the nearest country, centered on the given pixel, in the given map.
      */
-    private static String nearestCountry(int x, int y, boolean wikidataOrNot, BufferedImage map) {
-        String country = countryFromPixel(x, y, wikidataOrNot, map);
+    private static String nearestCountry(int x, int y, boolean wikidataOrNot, BufferedImage bitmap) {
+        String country = countryFromPixel(x, y, wikidataOrNot, bitmap);
         if (country == null) {
             // We are in the sea or right on a border. Check surrounding pixels.
             int radius = 1;
             while (country == null) {
-                country = countryAtDistance(x, y, radius, wikidataOrNot, map);
+                country = countryAtDistance(x, y, radius, wikidataOrNot, bitmap);
                 radius++;
             }
         }
@@ -127,7 +128,7 @@ public class Coordinates2Country {
      * Finds the most represented country in the pixels situated at given distance ("radius") of given pixel.
      * Distance is currently not implemented as real radius, but as a rectangle.
      */
-    private static String countryAtDistance(int centerX, int centerY, int radius, boolean wikidataOrNot, BufferedImage map) {
+    private static String countryAtDistance(int centerX, int centerY, int radius, boolean wikidataOrNot, BufferedImage bitmap) {
         //System.out.println("radius=" + radius);
         int x1 = centerX - radius;
         int x2 = centerX + radius;
@@ -139,7 +140,7 @@ public class Coordinates2Country {
         for (int x = x1; x <= x2; x++) {
             for (int y = y1; y <= y2; y += y2 - y1) { // y1 then y2 then end the loop.
             //System.out.println("vertical, radius=" + radius + " x=" + x + " y=" +y);
-                String country = countryFromPixel(x, y, wikidataOrNot, map);
+                String country = countryFromPixel(x, y, wikidataOrNot, bitmap);
                 if (country != null) {
                     int occurrences = 0;
                     if (countriesOccurrences.containsKey(country)) {
@@ -153,7 +154,7 @@ public class Coordinates2Country {
         for (int y = y1 + 1; y <= y2 - 1; y++) {
             for (int x = x1; x <= x2; x += x2 - x1) { // x1 then x2 then end the loop.
             //System.out.println("horizontal, radius=" + radius + " x=" + x + " y=" +y);
-                String country = countryFromPixel(x, y, wikidataOrNot, map);
+                String country = countryFromPixel(x, y, wikidataOrNot, bitmap);
                 if (country != null) {
                     int occurrences = 0;
                     if (countriesOccurrences.containsKey(country)) {
@@ -179,8 +180,8 @@ public class Coordinates2Country {
     /**
      * Finds the country under a given pixel.
      */
-    private static String countryFromPixel(int x, int y, boolean wikidataOrNot, BufferedImage map) {
-        int grayshade = map.getRaster().getSample(x, y, 0);
+    private static String countryFromPixel(int x, int y, boolean wikidataOrNot, BufferedImage bitmap) {
+        int grayshade = bitmap.getRaster().getSample(x, y, 0);
         return countryFromGrayshade(grayshade, wikidataOrNot);
    }
 
