@@ -17,6 +17,20 @@ import javax.imageio.ImageIO;
  */
 public class Coordinates2Country {
 
+    private static final Map<String, String> COUNTRY_NAME_CODE_MAP;
+    static {
+        String[] countries = Locale.getISOCountries();
+        COUNTRY_NAME_CODE_MAP = new HashMap<>();
+        for (String countryCode : countries) {
+            Locale locale = new Locale("", countryCode);
+            COUNTRY_NAME_CODE_MAP.put(locale.getDisplayCountry(Locale.ENGLISH).toUpperCase(), countryCode);
+        }
+    }
+
+    public static String getCountryCodeFromCountryString(String country) {
+      return COUNTRY_NAME_CODE_MAP.get(country.toUpperCase());
+    }
+
     /**
      * Converts coordinates (example: 50.1, 10.2) into a country name in English (example: "Germany").
      */
@@ -29,6 +43,28 @@ public class Coordinates2Country {
      */
     public static String countryQID(double latitude, double longitude) {
         return country(latitude, longitude, true);
+    }
+
+    /**
+     * Converts coordinates (example: 50.1, 10.2) into a country code (example: "DE" for Germany).
+     */
+    public static String countryCode(double latitude, double longitude) {
+        String country = country(latitude, longitude, false);
+        if (country == null) {
+            return null;
+        }
+        return getCountryCodeFromCountryString(country);
+    }
+
+    /**
+     * Converts coordinates (example: 50.1, 10.2) into a country currency code (example: "EUR" for Germany).
+     */
+    public static String countryCurrencyCode(double latitude, double longitude) {
+        String countryCode = countryCode(latitude, longitude);
+        if (countryCode == null) {
+            return null;
+        }
+        return Currency.getInstance(new Locale("", countryCode)).getCurrencyCode();
     }
 
     /**
