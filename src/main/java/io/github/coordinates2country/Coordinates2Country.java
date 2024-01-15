@@ -1,6 +1,8 @@
 package io.github.coordinates2country;
 
 import java.util.Collections;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.HashMap;
