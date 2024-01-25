@@ -45,8 +45,8 @@ public class LibraryTest {
     }
 
     /* Disabled because too lengthy @Test public void testAllPixels() {
-        for (int latitude = -90; latitude <= 90; latitude += 0.1) { // Resolution is less than 10 pixels per degree.
-            for (int longitude = -180; longitude <= 180; longitude += 0.1) {
+        for (double latitude = -90; latitude <= 90; latitude += 0.1) { // Resolution is less than 10 pixels per degree.
+            for (double longitude = -180; longitude <= 180; longitude += 0.1) {
                 Coordinates2Country.country(latitude, longitude);
             }
         }
