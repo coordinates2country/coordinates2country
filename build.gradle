@@ -51,7 +51,7 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'scm:git:git://github.com/CuriousNikhil/simplepoller.git'
+                    connection = 'scm:git:git://github.com/coordinates2country/coordinates2country.git'
                     developerConnection = 'scm:git:ssh://github.com/coordinates2country/coordinates2country.git'
                     url = 'https://github.com/coordinates2country/coordinates2country'
                 }
@@ -63,8 +63,11 @@ publishing {
         maven {
 
             credentials {
-                username = "$NEXUS_USERNAME"
-                password = "$NEXUS_PASSWORD"
+                username = findProperty("ossrhToken") as String
+                password = findProperty("ossrhTokenPassword") as String
+
+                //username = "$NEXUS_USERNAME"
+                //password = "$NEXUS_PASSWORD"
             }
 
             name = "Coordinates2Country"
