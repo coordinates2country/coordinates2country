@@ -15,7 +15,7 @@ This [sample program that uses the library](https://github.com/coordinates2count
 
 If using Gradle:
 ```
-implementation("io.github.coordinates2country:coordinates2country:1.7")
+implementation("io.github.coordinates2country:coordinates2country:1.8")
 ```
 
 For other build systems or for the JAR, search for the latest version on [Maven Central](https://central.sonatype.com/namespace/io.github.coordinates2country).
