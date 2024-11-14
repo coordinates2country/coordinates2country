@@ -1,204 +1,204 @@
-1,Papua New Guinea,691
-2,Switzerland,39
-3,Myanmar,836
-4,Niger,1032
-5,Chile,298
-6,Malawi,1020
-7,India,668
-8,Japan,17
-9,Philippines,928
-10,North Korea,423
-11,Taiwan,865
-12,Austria,40
-13,South Sudan,958
-14,Central African Republic,929
-15,Mozambique,1029
-16,Madagascar,1019
-17,Mali,912
-18,Cuba,241
-19,Maldives,826
-20,Malta,233
-21,Netherlands,29999
-22,Algeria,262
-23,Greece,41
-24,Belarus,184
-25,East Timor,574
-26,Ethiopia,115
-27,Bhutan,917
-28,Pakistan,843
-29,Ecuador,736
-30,Namibia,1030
-31,Haiti,790
-32,South Africa,258
-33,Iran,794
-34,Burkina Faso,965
-35,Peru,419
-36,Botswana,963
-37,Norway,20
-38,American Samoa,16641
-39,Vietnam,881
-40,Senegal,1041
-41,Andorra,228
-42,Antigua and Barbuda,781
-43,Venezuela,717
-44,Germany,183
-45,Barbados,244
-46,Saudi Arabia,851
-47,Brunei,921
-48,Australia,408
-49,Egypt,79
-50,Sudan,1049
-51,Chad,657
-52,Cape Verde,1011
-53,Bahrain,398
-54,Comoros,970
-55,Cook Islands,26988
-56,Costa Rica,800
-57,Dominica,784
-58,Dominican Republic,786
-59,El Salvador,792
-60,Federated States of Micronesia,702
-61,Fiji,712
-62,Grenada,769
-63,Somaliland,34754
-64,Somalia,1045
-65,Ivory Coast,1008
-66,Guatemala,774
-67,Guinea,1006
-68,Guinea-Bissau,1007
-69,Guyana,734
-70,Honduras,783
-71,United Kingdom,145
-72,Hungary,28
-73,Jamaica,766
-74,Jordan,810
-75,Kenya,114
-76,Indonesia,252
-77,Republic of the Congo,971
-78,Kiribati,710
-79,Kyrgyzstan,813
-80,Latvia,211
-81,Lebanon,822
-82,Lesotho,1013
-83,Cyprus,229
-84,Liberia,1014
-85,Morocco,1028
-86,Marshall Islands,709
-87,Angola,916
-88,Paraguay,733
-89,Burundi,967
-90,Mongolia,711
-91,Mauritius,1027
-92,Montenegro,236
-93,Nauru,697
-94,Nicaragua,811
-95,Niue,34020
-96,Qatar,846
-97,Oman,842
-98,Palau,695
-99,Mauritania,1025
-100,Saint Kitts and Nevis,763
-101,Portugal,45
-102,Saint Lucia,760
-103,Ireland,27
-104,Saint Vincent and the Grenadines,757
-105,Sri Lanka,854
-106,Samoa,683
-107,Romania,218
-108,Italy,38
-110,Seychelles,1042
-111,Sierra Leone,1044
-112,Cambodia,424
-113,Kazakhstan,232
-114,Singapore,334
-115,Sint Maarten,26273
-116,Solomon Islands,685
-117,Slovakia,214
-118,Ghana,117
-119,Russia,159
-120,Tajikistan,863
-121,Tanzania,924
-122,United States of America,30
-124,The Gambia,1005
-125,Sweden,34
-126,Togo,945
-127,Malaysia,833
-128,Transnistria,907112
-129,Trinidad and Tobago,754
-130,Afghanistan,889
-131,New Zealand,664
-132,Turkmenistan,874
-133,France,142
-134,Poland,36
-135,Tuvalu,672
-136,Brazil,155
-137,Iraq,796
-138,Uganda,1036
-139,United Arab Emirates,878
-140,South Korea,884
-141,Vanuatu,686
-142,Uzbekistan,265
-143,Yemen,805
-144,Rwanda,1037
-145,Bolivia,750
-146,Zambia,953
-147,Tonga,678
-148,Western Sahara,6250
-149,Belgium,31
-150,North Macedonia,221
-151,Spain,29
-152,Luxembourg,32
-153,People's Republic of China,148
-154,Turkey,43
-155,Czech Republic,213
-156,Anguilla,25228
-157,Azerbaijan,227
-158,The Bahamas,778
-159,Armenia,399
-160,Denmark,35
-161,Ukraine,212
-162,Palestine,219060
-163,North Macedonia,221
-164,Laos,819
-165,Benin,962
-166,Moldova,217
-167,Thailand,869
-169,Uruguay,77
-170,Argentina,414
-171,Kuwait,817
-172,Lithuania,37
-173,Nepal,837
-174,Iceland,189
-175,Serbia,403
-176,Slovenia,215
-177,Canada,16
-178,Panama,804
-179,Suriname,730
-180,Eswatini,1050
-181,São Tomé and Príncipe,1039
-182,Democratic Republic of the Congo,974
-183,Hong Kong,8646
-184,Bangladesh,902
-185,New Caledonia,33788
-186,Puerto Rico,1183
-187,Zimbabwe,954
-188,Djibouti,977
-189,Nigeria,1033
-191,Estonia,191
-192,Macao,14773
-194,Bulgaria,219
-201,Colombia,739
-208,Cameroon,1009
-211,Mexico,96
-214,Eritrea,986
-217,Albania,222
-222,Greenland,223
-223,Finland,33
-224,Israel,801
-225,Bosnia and Herzegovina,225
-229,Syria,858
-230,Georgia,230
-232,Croatia,224
-242,Belize,242
-243,Tunisia,948
-249,Libya,1016
+1,PG,691
+2,CH,39
+3,MM,836
+4,NE,1032
+5,CL,298
+6,MW,1020
+7,IN,668
+8,JP,17
+9,PH,928
+10,KP,423
+11,TW,865
+12,AT,40
+13,SS,958
+14,CF,929
+15,MZ,1029
+16,MG,1019
+17,ML,912
+18,CU,241
+19,MV,826
+20,MT,233
+21,NL,29999
+22,DZ,262
+23,GR,41
+24,BY,184
+25,TL,574
+26,ET,115
+27,BT,917
+28,PK,843
+29,EC,736
+30,NA,1030
+31,HT,790
+32,ZA,258
+33,IR,794
+34,BF,965
+35,PE,419
+36,BW,963
+37,NO,20
+38,AS,16641
+39,VN,881
+40,SN,1041
+41,AD,228
+42,AG,781
+43,VE,717
+44,DE,183
+45,BB,244
+46,SA,851
+47,BN,921
+48,AU,408
+49,EG,79
+50,SD,1049
+51,TD,657
+52,CV,1011
+53,BH,398
+54,KM,970
+55,CK,26988
+56,CR,800
+57,DM,784
+58,DO,786
+59,SV,792
+60,FM,702
+61,FJ,712
+62,GD,769
+63,SO,34754
+64,SO,1045
+65,CI,1008
+66,GT,774
+67,GN,1006
+68,GW,1007
+69,GY,734
+70,HN,783
+71,GB,145
+72,HU,28
+73,JM,766
+74,JO,810
+75,KE,114
+76,ID,252
+77,CG,971
+78,KI,710
+79,KG,813
+80,LV,211
+81,LB,822
+82,LS,1013
+83,CY,229
+84,LR,1014
+85,MA,1028
+86,MH,709
+87,AO,916
+88,PY,733
+89,BI,967
+90,MN,711
+91,MU,1027
+92,ME,236
+93,NR,697
+94,NI,811
+95,NU,34020
+96,QA,846
+97,OM,842
+98,PW,695
+99,MR,1025
+100,KN,763
+101,PT,45
+102,LC,760
+103,IE,27
+104,VC,757
+105,LK,854
+106,WS,683
+107,RO,218
+108,IT,38
+110,SC,1042
+111,SL,1044
+112,KH,424
+113,KZ,232
+114,SG,334
+115,SX,26273
+116,SB,685
+117,SK,214
+118,GH,117
+119,RU,159
+120,TJ,863
+121,TZ,924
+122,US,30
+124,GM,1005
+125,SE,34
+126,TG,945
+127,MY,833
+128,null,907112
+129,TT,754
+130,AF,889
+131,NZ,664
+132,TM,874
+133,FR,142
+134,PL,36
+135,TV,672
+136,BR,155
+137,IQ,796
+138,UG,1036
+139,AE,878
+140,KR,884
+141,VU,686
+142,UZ,265
+143,YE,805
+144,RW,1037
+145,BO,750
+146,ZM,953
+147,TO,678
+148,EH,6250
+149,BE,31
+150,MK,221
+151,ES,29
+152,LU,32
+153,CN,148
+154,TR,43
+155,CZ,213
+156,AI,25228
+157,AZ,227
+158,BS,778
+159,AM,399
+160,DK,35
+161,UA,212
+162,PS,219060
+163,MK,221
+164,LA,819
+165,BJ,962
+166,MD,217
+167,TH,869
+169,UY,77
+170,AR,414
+171,KW,817
+172,LT,37
+173,NP,837
+174,IS,189
+175,RS,403
+176,SI,215
+177,CA,16
+178,PA,804
+179,SR,730
+180,SZ,1050
+181,ST,1039
+182,CD,974
+183,HK,8646
+184,BD,902
+185,NC,33788
+186,PR,1183
+187,ZW,954
+188,DJ,977
+189,NG,1033
+191,EE,191
+192,MO,14773
+194,BG,219
+201,CO,739
+208,CM,1009
+211,MX,96
+214,ER,986
+217,AL,222
+222,GL,223
+223,FI,33
+224,IL,801
+225,BA,225
+229,SY,858
+230,GE,230
+232,HR,224
+242,BZ,242
+243,TN,948
+249,LY,1016

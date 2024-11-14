@@ -1,48 +1,42 @@
 package io.github.coordinates2country;
 
-import java.util.Collections;
-import java.util.Currency;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.HashMap;
-import java.io.File;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.InputStreamReader;
-
-import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * Converts coordinates (example: 50.1, 10.2) into a country identifier (example: "Germany").
  */
 public class Coordinates2Country {
 
-    private static final Map<String, String> COUNTRY_NAME_CODE_MAP;
-    static {
-        String[] countries = Locale.getISOCountries();
-        COUNTRY_NAME_CODE_MAP = new HashMap<>();
-        for (String countryCode : countries) {
-            Locale locale = new Locale("", countryCode);
-            COUNTRY_NAME_CODE_MAP.put(locale.getDisplayCountry(Locale.ENGLISH).toUpperCase(), countryCode);
-        }
-    }
-
-    public static String getCountryCodeFromCountryString(String country) {
-      return COUNTRY_NAME_CODE_MAP.get(country.toUpperCase());
-    }
-
     /**
      * Converts coordinates (example: 50.1, 10.2) into a country name in English (example: "Germany").
      */
     public static String country(double latitude, double longitude) {
-        return country(latitude, longitude, false);
+        String countryCode = country(latitude, longitude, false);
+        if (countryCode == null) {
+            return null;
+        }
+        return new Locale("", countryCode).getDisplayCountry(Locale.ENGLISH);
     }
 
     /**
-     * Converts coordinates (example: 50.1, 10.2) into a the numerical part of a Wikidata QID identifier (example: 183, meaning http://www.wikidata.org/entity/Q183).
+     * Converts coordinates (example: 50.1, 10.2) into a country name in specified language (example: "Deutschland" for `Locale.GERMAN`).
+     */
+    public static String country(double latitude, double longitude, Locale language) {
+        String countryCode = country(latitude, longitude, false);
+        if (countryCode == null) {
+            return null;
+        }
+        return new Locale("", countryCode).getDisplayCountry(language);
+    }
+
+    /**
+     * Converts coordinates (example: 50.1, 10.2) into the numerical part of a Wikidata QID identifier (example: 183, meaning http://www.wikidata.org/entity/Q183).
      */
     public static String countryQID(double latitude, double longitude) {
         return country(latitude, longitude, true);
@@ -52,11 +46,7 @@ public class Coordinates2Country {
      * Converts coordinates (example: 50.1, 10.2) into a country code (example: "DE" for Germany).
      */
     public static String countryCode(double latitude, double longitude) {
-        String country = country(latitude, longitude, false);
-        if (country == null) {
-            return null;
-        }
-        return getCountryCodeFromCountryString(country);
+        return country(latitude, longitude, false);
     }
 
     /**
@@ -71,8 +61,8 @@ public class Coordinates2Country {
     }
 
     /**
-     * Converts coordinates (example: 50.1, 10.2) into a country identifier (example: "Germany").
-     * @param wikidataOrNot Whether to return the result as a Wikidata QID number or a country name in English.
+     * Converts coordinates (example: 50.1, 10.2) into a country iso code (example: "DE").
+     * @param wikidataOrNot Whether to return the result as a Wikidata QID number or the country iso code.
      */
     private static String country(double latitude, double longitude, boolean wikidataOrNot) {
         int WIDTH = 2400; // Width of the map image.

@@ -1,9 +1,11 @@
 package io.github.coordinates2country;
 
+import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for coordinates2country.
@@ -21,26 +23,21 @@ public class LibraryTest {
         assertEquals("Madagascar", Coordinates2Country.country(-31, 45)); // Sea a dozen pixels far from of Madagascar
     }
 
-    @Test public void testAllSamples() throws Exception {
-	BufferedReader br = new BufferedReader(new FileReader("./data/countries.csv"));
-        String line = br.readLine();
-        line = br.readLine(); // Skip CSV header
-
-        while (line != null) {
-	    System.out.println(line);
-	    String[] parts = line.split(",");
-	    if (parts.length > 1 && parts[0].length() > 0) { // Skip countries not yet implemented
+    @Test
+    public void testAllSamples() throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader("./data/countries.csv"));
+        br.readLine(); // Skip CSV header
+        String line;
+        while ((line = br.readLine()) != null) {
+            System.out.println(line);
+            String[] parts = line.split(",");
+            if (parts.length > 1 && !parts[0].isEmpty()) { // Skip countries not yet implemented
                 String country = parts[1];
                 double latitude = Double.parseDouble(parts[2]);
                 double longitude = Double.parseDouble(parts[3]);
-
-		//System.out.println("country=" + country + " latitude=" + latitude + " longitude=" + longitude);
-		//if(!country.equals(Coordinates2Country.country(latitude, longitude))) System.out.println("FAIL");
-		assertEquals(country, Coordinates2Country.country(latitude, longitude));
+                assertEquals(country, Coordinates2Country.countryCode(latitude, longitude));
             }
-		
-            line = br.readLine();
-            }
+        }
         br.close();
     }
 
