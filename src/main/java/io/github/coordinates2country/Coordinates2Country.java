@@ -17,18 +17,14 @@ public class Coordinates2Country {
      * Converts coordinates (example: 50.1, 10.2) into a country name in English (example: "Germany").
      */
     public static String country(double latitude, double longitude) {
-        String countryCode = country(latitude, longitude, false);
-        if (countryCode == null) {
-            return null;
-        }
-        return new Locale("", countryCode).getDisplayCountry(Locale.ENGLISH);
+        return country(latitude, longitude, Locale.ENGLISH);
     }
 
     /**
      * Converts coordinates (example: 50.1, 10.2) into a country name in specified language (example: "Deutschland" for `Locale.GERMAN`).
      */
     public static String country(double latitude, double longitude, Locale language) {
-        String countryCode = country(latitude, longitude, false);
+        String countryCode = countryCode(latitude, longitude, false);
         if (countryCode == null) {
             return null;
         }
@@ -39,14 +35,7 @@ public class Coordinates2Country {
      * Converts coordinates (example: 50.1, 10.2) into the numerical part of a Wikidata QID identifier (example: 183, meaning http://www.wikidata.org/entity/Q183).
      */
     public static String countryQID(double latitude, double longitude) {
-        return country(latitude, longitude, true);
-    }
-
-    /**
-     * Converts coordinates (example: 50.1, 10.2) into a country code (example: "DE" for Germany).
-     */
-    public static String countryCode(double latitude, double longitude) {
-        return country(latitude, longitude, false);
+        return countryCode(latitude, longitude, true);
     }
 
     /**
@@ -61,10 +50,17 @@ public class Coordinates2Country {
     }
 
     /**
+     * Converts coordinates (example: 50.1, 10.2) into a country code (example: "DE" for Germany).
+     */
+    public static String countryCode(double latitude, double longitude) {
+        return countryCode(latitude, longitude, false);
+    }
+
+    /**
      * Converts coordinates (example: 50.1, 10.2) into a country iso code (example: "DE").
      * @param wikidataOrNot Whether to return the result as a Wikidata QID number or the country iso code.
      */
-    private static String country(double latitude, double longitude, boolean wikidataOrNot) {
+    private static String countryCode(double latitude, double longitude, boolean wikidataOrNot) {
         int WIDTH = 2400; // Width of the map image.
         int HEIGHT = 949; // Height of the map image.
 

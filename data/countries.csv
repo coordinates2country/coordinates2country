@@ -1,4 +1,4 @@
-color,iso code,latitude,longitude,wikidata,must be 1 or more,special value in what could be previous row,note
+color,iso 3166-1 alpha-2 code,latitude,longitude,wikidata,must be 1 or more,special value in what could be previous row,note
 1,PG,-6.3,147,http://www.wikidata.org/entity/Q691,#VALUE!,"0: color of borders on the map, avoid it for now",
 2,CH,46.798562,8.231973,http://www.wikidata.org/entity/Q39,1,,
 3,MM,22,96,http://www.wikidata.org/entity/Q836,1,,
