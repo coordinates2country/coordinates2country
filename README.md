@@ -2,8 +2,8 @@
 
 What country is at a particular latitude/longitude? This Java library (less than 100kB) tells you in 50 milliseconds, without using the Internet and without requiring any permission.
 
-- Fast reverse geocoding
-- Never needs an Internet connection
+- Fast reverse geocoding.
+- Never needs an Internet connection, not even the first time.
 
 For the Android version, see https://github.com/coordinates2country/coordinates2country-android.
 
@@ -29,7 +29,10 @@ import io.github.coordinates2country.Coordinates2Country;
 
 `Coordinates2Country.country(-23.7, 39.8)` returns the String `France`.
 
-If you prefer identifiers, `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
+Alternatives:
+- `Coordinates2Country.country(-23.7, 39.8, Locale.SPANISH)` returns the String `Francia`.
+- `Coordinates2Country.countryCode(-23.7, 39.8)` returns `FR`, the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) code of France, used by Java.
+- `Coordinates2Country.countryQID(-23.7, 39.8)` returns `142`, the Wikidata [QID](https://www.wikidata.org/wiki/Q142) number of France.
 
 # Testimonial
 
