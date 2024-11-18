@@ -16,7 +16,7 @@ dependencies {
 // OSSRH publishing instructions found at https://mrcurious.medium.com/publishing-your-android-kotlin-library-to-maven-central-in-2021-df263a4f2cbc
 
 group = 'io.github.coordinates2country'
-version = '1.8'
+version = '1.9'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8 // Make the library usable on lower Java versions, see https://github.com/coordinates2country/coordinates2country/issues/5
