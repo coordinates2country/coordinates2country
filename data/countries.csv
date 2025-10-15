@@ -203,6 +203,7 @@ color,iso 3166-1 alpha-2 code,latitude,longitude,wikidata,must be 1 or more,spec
 242,BZ,17.0372781522208,-88.6900373452003,http://www.wikidata.org/entity/Q242,,,
 243,TN,34,10,http://www.wikidata.org/entity/Q948,11,,
 249,LY,27,17,http://www.wikidata.org/entity/Q1016,6,,
+250,GA,0,10,http://www.wikidata.org/entity/Q1000,1,,
 ,AW,12.51106253,-69.97422388,http://www.wikidata.org/entity/Q21203,,,TODO see https://english.defensie.nl/topics/hydrography/documents/applications/2019/07/19/maritme-zones-aruba
 ,null,46.316389,28.666389,http://www.wikidata.org/entity/Q164819,,,
 ,null,43.05,-8.133333333,http://www.wikidata.org/entity/Q3908,,,
