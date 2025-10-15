@@ -13,6 +13,10 @@ import java.util.Map.Entry;
  */
 public class Coordinates2Country {
 
+//////////////////////////////////////////////////////////////////
+// Public methods
+//////////////////////////////////////////////////////////////////
+
     /**
      * Converts coordinates (example: 50.1, 10.2) into a country name in English (example: "Germany").
      */
@@ -57,6 +61,29 @@ public class Coordinates2Country {
     }
 
     /**
+     * Set the library to cache its data, rather than reload it at every call.
+     * Using cache is recommended if you prioritize speed of execution.
+     * The drawback of enabling cache is that it takes memory which can not be claimed back until the program ends.
+     */
+    public static void cache() {
+        CACHE = true;
+    }
+
+//////////////////////////////////////////////////////////////////
+// Private methods
+//////////////////////////////////////////////////////////////////
+
+    /**
+     * Sets the library to keep the bitmap data in a cache after loading it, rather than deleting it after each use which is the default behavior.
+     */
+    private static boolean CACHE = false;
+
+    /**
+     * Cached bitmap
+     */
+    private static BufferedImage cachedBitmap = null;
+
+    /**
      * Converts coordinates (example: 50.1, 10.2) into a country iso code (example: "DE").
      * @param wikidataOrNot Whether to return the result as a Wikidata QID number or the country iso code.
      */
@@ -83,12 +110,22 @@ public class Coordinates2Country {
         // Each country is a shade of gray in this image which is a map of the world using the https://en.wikipedia.org/wiki/Equirectangular_projection with phi0=0 and lambda0=0.
         // Load it within this method and do not cache it, in order to allow garbage collection between each call, because we consider that low memory usage is more important than speed.
         BufferedImage bitmap = null;
-        try {
-            bitmap = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
+        if (cachedBitmap == null) {
+            try {
+                bitmap = ImageIO.read(Coordinates2Country.class.getResourceAsStream("/countries-8bitgray.png"));
+            }
+            catch(IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+
+            // Cache it if caching has been enabled.
+            if (CACHE) {
+                cachedBitmap = bitmap;
+            }
         }
-        catch(IOException e) {
-            e.printStackTrace();
-            return null;
+        else {
+            bitmap = cachedBitmap;
         }
 
         String country = nearestCountry(x, y, wikidataOrNot, bitmap);
