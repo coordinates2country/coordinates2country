@@ -2,24 +2,22 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
+    id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
 }
 
 repositories {
-    jcenter()
+    mavenCentral()  // jcenter() is deprecated
 }
 
 dependencies {
-    // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
-
-// OSSRH publishing instructions found at https://mrcurious.medium.com/publishing-your-android-kotlin-library-to-maven-central-in-2021-df263a4f2cbc
 
 group = 'io.github.coordinates2country'
 version = '1.10'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8 // Make the library usable on lower Java versions, see https://github.com/coordinates2country/coordinates2country/issues/5
+    sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     withJavadocJar()
     withSourcesJar()
@@ -28,19 +26,16 @@ java {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-
             artifactId = 'coordinates2country'
-
             from components.java
-
             pom {
                 name = 'Coordinates2Country'
                 description = 'Fast offline reverse geocoding'
                 url = 'https://github.com/coordinates2country/coordinates2country'
                 licenses {
                     license {
-                        name = 'Apache-2.0 License'
-                        url = 'https://github.com/coordinates2country/coordinates2country/blob/main/LICENSE'
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
@@ -58,20 +53,15 @@ publishing {
             }
         }
     }
+}
 
+nexusPublishing {
     repositories {
-        maven {
-
-            credentials {
-                username = findProperty("ossrhToken") as String
-                password = findProperty("ossrhTokenPassword") as String
-
-                //username = "$NEXUS_USERNAME"
-                //password = "$NEXUS_PASSWORD"
-            }
-
-            name = "Coordinates2Country"
-            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+        sonatype {
+            nexusUrl.set(uri('https://central.sonatype.com/api/v1/publisher/'))
+            snapshotRepositoryUrl.set(uri('https://central.sonatype.com/api/v1/publisher/'))
+            username = findProperty('centralUsername')
+            password = findProperty('centralPassword')
         }
     }
 }
